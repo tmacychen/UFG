@@ -5,8 +5,8 @@
 package controller
 
 import (
-	"UFG/framework"
-	"UFG/framework/outer"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/framework/outer"
 )
 
 type AttachableOuter interface {

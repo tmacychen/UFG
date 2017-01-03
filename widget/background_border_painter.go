@@ -5,10 +5,10 @@
 package widget
 
 import (
-	"UFG/framework"
-	"UFG/framework/outer"
-	"UFG/math"
-	"UFG/widget/tools"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/framework/outer"
+	"github.com/tmacychen/UFG/math"
+	"github.com/tmacychen/UFG/widget/tools"
 )
 
 type BackgroundBorderPainterOuter interface {

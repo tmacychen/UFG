@@ -7,9 +7,9 @@ package controller
 import (
 	"fmt"
 
-	"UFG/framework"
-	"UFG/framework/outer"
-	"UFG/math"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/framework/outer"
+	"github.com/tmacychen/UFG/math"
 )
 
 type ContainerOuter interface {
@@ -22,6 +22,14 @@ type ContainerOuter interface {
 }
 
 type Container struct {
+	Attachable
+	DrawPaint
+	InputEventHandler
+	Layoutable
+	Paddable
+	Parentable
+	PaintChildren
+
 	outer              ContainerOuter
 	children           framework.Children
 	isMouseEventTarget bool

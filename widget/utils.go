@@ -5,7 +5,7 @@
 package widget
 
 import (
-	"UFG/framework/outer"
+	"github.com/tmacychen/UFG/framework/outer"
 )
 
 func callLayoutChildrenIfSupported(i interface{}) {

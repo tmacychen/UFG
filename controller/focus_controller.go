@@ -4,7 +4,7 @@
 
 package controller
 
-import "UFG/framework"
+import "github.com/tmacychen/UFG/framework"
 
 type FocusController struct {
 	window             framework.Window

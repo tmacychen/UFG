@@ -1,0 +1,35 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;UFG&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../.." />
+      <root url="file://$PROJECT_DIR$/../../../golang.org" />
+      <root url="file://$USER_HOME$/PycharmProjects/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../exercise_go" />
+      <root url="file://$PROJECT_DIR$/../../../myblog" />
+      <root url="file://$USER_HOME$/PycharmProjects/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../../../9fans.net" />
+      <root url="file://$USER_HOME$/PycharmProjects/src/theme" />
+      <root url="file://$PROJECT_DIR$/../../../newblog" />
+      <root url="file://$PROJECT_DIR$/../../../gopkg.in" />
+      <root url="file://$USER_HOME$/PycharmProjects/src/UFG" />
+      <root url="file://$PROJECT_DIR$/../../../exgo" />
+    </CLASSES>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../.." />
+      <root url="file://$PROJECT_DIR$/../../../golang.org" />
+      <root url="file://$USER_HOME$/PycharmProjects/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../exercise_go" />
+      <root url="file://$PROJECT_DIR$/../../../myblog" />
+      <root url="file://$USER_HOME$/PycharmProjects/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../../../9fans.net" />
+      <root url="file://$USER_HOME$/PycharmProjects/src/theme" />
+      <root url="file://$PROJECT_DIR$/../../../newblog" />
+      <root url="file://$PROJECT_DIR$/../../../gopkg.in" />
+      <root url="file://$USER_HOME$/PycharmProjects/src/UFG" />
+      <root url="file://$PROJECT_DIR$/../../../exgo" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>

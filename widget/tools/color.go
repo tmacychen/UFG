@@ -4,7 +4,7 @@
 
 package tools
 
-import "UFG/math"
+import "github.com/tmacychen/UFG/math"
 
 var Transparent = Color{0.0, 0.0, 0.0, 0.0}
 

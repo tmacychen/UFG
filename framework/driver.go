@@ -6,7 +6,7 @@ package framework
 
 import (
 	"image"
-	"UFG/math"
+	"github.com/tmacychen/UFG/math"
 )
 
 type Driver interface {

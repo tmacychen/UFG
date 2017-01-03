@@ -4,6 +4,8 @@
 
 package framework
 
+import "github.com/tmacychen/UFG/widget/tools"
+
 // LinearLayout is a Container that lays out its child Controls into a column or
 // row. The layout will always start by positioning the first (0'th) child, and
 // then depending on the direction, will position each successive child either
@@ -20,48 +22,48 @@ type LinearLayout interface {
 	Container
 
 	// Direction returns the direction of layout for this LinearLayout.
-	//Direction() Direction
+	Direction() Direction
 
-	//// Direction sets the direction of layout for this LinearLayout.
-	//SetDirection(Direction)
+	// Direction sets the direction of layout for this LinearLayout.
+	SetDirection(Direction)
 
-	//// SizeMode returns the desired size behaviour for this LinearLayout.
-	//SizeMode() SizeMode
+	// SizeMode returns the desired size behaviour for this LinearLayout.
+	SizeMode() SizeMode
 
-	//// SetSizeMode sets the desired size behaviour for this LinearLayout.
-	//SetSizeMode(SizeMode)
+	// SetSizeMode sets the desired size behaviour for this LinearLayout.
+	SetSizeMode(SizeMode)
 
-	//// HorizontalAlignment returns the alignment of the child Controls when laying
-	//// out TopToBottom or BottomToTop. It has no effect when the layout direction
-	//// is LeftToRight or RightToLeft.
-	//HorizontalAlignment() HorizontalAlignment
+	// HorizontalAlignment returns the alignment of the child Controls when laying
+	// out TopToBottom or BottomToTop. It has no effect when the layout direction
+	// is LeftToRight or RightToLeft.
+	HorizontalAlignment() HorizontalAlignment
 
-	//// SetHorizontalAlignment sets the alignment of the child Controls when laying
-	//// out TopToBottom or BottomToTop. It has no effect when the layout direction
-	//// is LeftToRight or RightToLeft.
-	//SetHorizontalAlignment(HorizontalAlignment)
+	// SetHorizontalAlignment sets the alignment of the child Controls when laying
+	// out TopToBottom or BottomToTop. It has no effect when the layout direction
+	// is LeftToRight or RightToLeft.
+	SetHorizontalAlignment(HorizontalAlignment)
 
-	//// VerticalAlignment returns the alignment of the child Controls when laying
-	//// out LeftToRight or RightToLeft. It has no effect when the layout direction
-	//// is TopToBottom or BottomToTop.
-	//VerticalAlignment() VerticalAlignment
+	// VerticalAlignment returns the alignment of the child Controls when laying
+	// out LeftToRight or RightToLeft. It has no effect when the layout direction
+	// is TopToBottom or BottomToTop.
+	VerticalAlignment() VerticalAlignment
 
-	//// SetVerticalAlignment returns the alignment of the child Controls when
-	//// laying out LeftToRight or RightToLeft. It has no effect when the layout
-	//// direction is TopToBottom or BottomToTop.
-	//SetVerticalAlignment(VerticalAlignment)
+	// SetVerticalAlignment returns the alignment of the child Controls when
+	// laying out LeftToRight or RightToLeft. It has no effect when the layout
+	// direction is TopToBottom or BottomToTop.
+	SetVerticalAlignment(VerticalAlignment)
 
-	//// BorderPen returns the Pen used to draw the LinearLayout's border.
-	//BorderPen() Pen
+	// BorderPen returns the Pen used to draw the LinearLayout's border.
+	BorderPen() tools.Pen
 
-	//// SetBorderPen sets the Pen used to draw the LinearLayout's border.
-	//SetBorderPen(Pen)
+	// SetBorderPen sets the Pen used to draw the LinearLayout's border.
+	SetBorderPen(tools.Pen)
 
-	//// BackgroundBrush returns the Brush used to fill the LinearLayout's
-	//// background.
-	//BackgroundBrush() Brush
+	// BackgroundBrush returns the Brush used to fill the LinearLayout's
+	// background.
+	BackgroundBrush() tools.Brush
 
-	//// SetBackgroundBrush sets the Brush used to fill the LinearLayout's
-	//// background.
-	//SetBackgroundBrush(Brush)
+	// SetBackgroundBrush sets the Brush used to fill the LinearLayout's
+	// background.
+	SetBackgroundBrush(tools.Brush)
 }

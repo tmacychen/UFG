@@ -6,7 +6,7 @@ package gl
 
 import (
 	"fmt"
-	"UFG/framework"
+	"github.com/tmacychen/UFG/framework"
 
 	"github.com/goxjs/glfw"
 )

@@ -5,7 +5,7 @@
 package controller
 
 import (
-	"UFG/framework/outer"
+	"github.com/tmacychen/UFG/framework/outer"
 )
 
 type VisibleOuter interface {

@@ -5,7 +5,7 @@
 package widget
 
 import (
-	"UFG/framework"
+	"github.com/tmacychen/UFG/framework"
 )
 
 type ParentableOuter interface{}

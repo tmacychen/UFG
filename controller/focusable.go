@@ -5,7 +5,7 @@
 package controller
 
 import (
-	"UFG/framework"
+	"github.com/tmacychen/UFG/framework"
 )
 
 type FocusableOuter interface{}

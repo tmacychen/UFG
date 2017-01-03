@@ -5,7 +5,7 @@
 package outer
 
 import (
-	"UFG/framework"
+	"github.com/tmacychen/UFG/framework"
 )
 
 type Draw interface {

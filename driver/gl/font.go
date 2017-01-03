@@ -6,9 +6,9 @@ package gl
 
 import (
 	"fmt"
-	"UFG/framework"
-	"UFG/math"
-	"UFG/widget/tools"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/math"
+	"github.com/tmacychen/UFG/widget/tools"
 	"unicode"
 
 	"github.com/golang/freetype/truetype"

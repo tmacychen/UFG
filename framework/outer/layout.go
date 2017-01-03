@@ -4,7 +4,7 @@
 
 package outer
 
-import "UFG/math"
+import "github.com/tmacychen/UFG/math"
 
 type Layout interface {
 	Layout(math.Rect)

@@ -7,7 +7,7 @@ package gl
 import (
 	"container/list"
 	"fmt"
-	"UFG/math"
+	"github.com/tmacychen/UFG/math"
 )
 
 const debugTriangulate = false

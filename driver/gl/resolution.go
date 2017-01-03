@@ -6,7 +6,7 @@ package gl
 
 import (
 	"fmt"
-	"UFG/math"
+	"github.com/tmacychen/UFG/math"
 )
 
 // 16:16 fixed point ratio of DIPs to pixels

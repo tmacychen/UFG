@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"runtime"
 
-	"UFG/framework"
-	"UFG/framework/outer"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/framework/outer"
 )
 
 const debugVerifyDetachOnGC = false

@@ -1,12 +1,12 @@
 package main
 
 import (
-	"UFG/driver/gl"
-	"UFG/framework"
-	"UFG/widget/lighttheme"
-	"UFG/font"
-	"UFG/math"
-	"UFG/widget/tools"
+	"github.com/tmacychen/UFG/driver/gl"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/theme/light"
+	"github.com/tmacychen/UFG/font"
+	"github.com/tmacychen/UFG/math"
+	"github.com/tmacychen/UFG/widget/tools"
 	"time"
 )
 
@@ -17,7 +17,7 @@ func appMain(driver framework.Driver) {
 		panic(err)
 	}
 	println("app main")
-	theme := lighttheme.CreateTheme(driver)
+	theme := light.CreateTheme(driver)
 	window := theme.CreateWindow( 500, 200, "hi")
 //	window.SetBackgroundBrush(tools.CreateBrush(tools.Gray70))
 

@@ -7,9 +7,9 @@ package controller
 import (
 	"fmt"
 
-	"UFG/framework"
-	"UFG/framework/outer"
-	"UFG/math"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/framework/outer"
+	"github.com/tmacychen/UFG/math"
 )
 
 type LayoutableOuter interface {

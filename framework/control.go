@@ -4,7 +4,7 @@
 
 package framework
 
-import "UFG/math"
+import "github.com/tmacychen/UFG/math"
 
 // Control is the interface exposed by all UI control elements.
 type Control interface {

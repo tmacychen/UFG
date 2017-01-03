@@ -10,7 +10,7 @@ import (
 	"image/png"
 	"os"
 
-	"UFG/math"
+	"github.com/tmacychen/UFG/math"
 
 	fnt "golang.org/x/image/font"
 	"golang.org/x/image/math/fixed"

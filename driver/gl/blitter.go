@@ -5,8 +5,8 @@
 package gl
 
 import (
-	"UFG/math"
-	"UFG/widget/tools"
+	"github.com/tmacychen/UFG/math"
+	"github.com/tmacychen/UFG/widget/tools"
 
 	"github.com/goxjs/gl"
 )

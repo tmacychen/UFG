@@ -7,7 +7,7 @@ package controller
 import (
 	"reflect"
 	"sync"
-	"UFG/framework"
+	"github.com/tmacychen/UFG/framework"
 )
 
 type ChanneledEvent struct {

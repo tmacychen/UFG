@@ -7,11 +7,11 @@ package gl
 import (
 	"sync"
 	"sync/atomic"
-	"UFG/controller"
-	"UFG/driver/gl/platform"
-	"UFG/framework"
-	"UFG/math"
-	"UFG/widget/tools"
+	"github.com/tmacychen/UFG/controller"
+	"github.com/tmacychen/UFG/driver/gl/platform"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/math"
+	"github.com/tmacychen/UFG/widget/tools"
 	"unicode"
 
 	"github.com/goxjs/gl"

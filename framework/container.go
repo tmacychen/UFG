@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"UFG/math"
+	"github.com/tmacychen/UFG/math"
 )
 
 type Child struct {

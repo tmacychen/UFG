@@ -1,11 +1,11 @@
 package widget
 
 import (
-	"UFG/controller"
-	"UFG/framework"
-	"UFG/framework/outer"
-	"UFG/math"
-	"UFG/widget/tools"
+	"github.com/tmacychen/UFG/controller"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/framework/outer"
+	"github.com/tmacychen/UFG/math"
+	"github.com/tmacychen/UFG/widget/tools"
 )
 
 type WindowOuter interface {
@@ -23,7 +23,7 @@ type Window struct {
 	controller.Attachable
 	controller.Container
 	controller.Paddable
-	PaintChildren
+	controller.PaintChildren
 	BackgroundBorderPainter
 
 	outer                 WindowOuter
@@ -38,7 +38,7 @@ type Window struct {
 	onClose               framework.Event
 }
 
-func (w *Window) init(outer WindowOuter, driver framework.Driver, width, height int, title string) {
+func (w *Window) Init(outer WindowOuter, driver framework.Driver, width, height int, title string) {
 //	println("window init")
 	w.Attachable.Init(outer)
 	w.Container.Init(outer)
@@ -59,13 +59,6 @@ func (w *Window) init(outer WindowOuter, driver framework.Driver, width, height 
 //	println("window init end")
 }
 
-func createWindow(theme *Theme, width, height int, title string) framework.Window {
-//	println("createWindow")
-	w := &Window{}
-	w.init(w, theme.Driver(), width, height, title)
-	w.SetBackgroundBrush(tools.CreateBrush(theme.WindowBackground))
-	return w
-}
 
 func (w *Window) Title() string {
 	return w.viewport.Title()

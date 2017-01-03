@@ -10,13 +10,13 @@ import (
 	"image"
 	"runtime"
 	"sync/atomic"
-	"UFG/framework"
-	"UFG/math"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/math"
 	"time"
 
 	"github.com/goxjs/gl"
 	"github.com/goxjs/glfw"
-	"UFG/controller"
+	"github.com/tmacychen/UFG/controller"
 )
 
 // Maximum time allowed for application to process events on termination.

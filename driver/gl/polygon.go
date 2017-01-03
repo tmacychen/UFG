@@ -5,8 +5,8 @@
 package gl
 
 import (
-	"UFG/framework"
-	"UFG/math"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/math"
 )
 
 func appendVec2(arr []float32, vecs ...math.Vec2) []float32 {

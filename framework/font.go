@@ -5,7 +5,7 @@
 package framework
 
 import (
-	"UFG/math"
+	"github.com/tmacychen/UFG/math"
 )
 
 // A Font represents a TrueType font loaded by the GXUI driver.

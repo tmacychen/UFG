@@ -5,7 +5,7 @@
 package gl
 
 import (
-	"UFG/framework"
+	"github.com/tmacychen/UFG/framework"
 
 	"github.com/goxjs/glfw"
 )

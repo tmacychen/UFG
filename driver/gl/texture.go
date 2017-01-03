@@ -6,7 +6,7 @@ package gl
 
 import (
 	"image"
-	"UFG/math"
+	"github.com/tmacychen/UFG/math"
 
 	"github.com/goxjs/gl"
 )

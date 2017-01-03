@@ -5,7 +5,7 @@
 package framework
 
 import (
-	"UFG/math"
+	"github.com/tmacychen/UFG/math"
 )
 
 type Viewport interface {

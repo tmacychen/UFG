@@ -17,8 +17,8 @@ import (
 	"bytes"
 	"compress/flate"
 	"io/ioutil"
-	"UFG/driver/gl"
-	"UFG/framework"
+	"github.com/tmacychen/UFG/driver/gl"
+	"github.com/tmacychen/UFG/framework"
 )
 
 var (

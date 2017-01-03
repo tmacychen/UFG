@@ -5,17 +5,20 @@
 package widget
 
 import (
-	"UFG/framework"
-	"UFG/framework/outer"
-	"UFG/math"
+	"github.com/tmacychen/UFG/controller"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/math"
+	"github.com/tmacychen/UFG/widget/tools"
 )
 
 type LinearLayoutOuter interface {
-	framework.Container
-	outer.Sized
+	controller.ContainerOuter
 }
 
 type LinearLayout struct {
+	controller.Container
+	BackgroundBorderPainter
+	controller.Visible
 	outer               LinearLayoutOuter
 	direction           framework.Direction
 	sizeMode            framework.SizeMode
@@ -24,7 +27,16 @@ type LinearLayout struct {
 }
 
 func (l *LinearLayout) Init(outer LinearLayoutOuter) {
+
+	l.Container.Init(outer)
+	l.BackgroundBorderPainter.Init(outer)
 	l.outer = outer
+	l.SetMouseEventTarget(true)
+	l.SetBackgroundBrush(tools.TransparentBrush)
+	l.SetBorderPen(tools.TransparentPen)
+
+	// Interface compliance test
+	_ = framework.LinearLayout(l)
 }
 
 func (l *LinearLayout) LayoutChildren() {
@@ -165,3 +177,9 @@ func (l *LinearLayout) SetVerticalAlignment(alignment framework.VerticalAlignmen
 		l.outer.Relayout()
 	}
 }
+//func (l *LinearLayout) Paint(c framework.Canvas) {
+//	r := l.Size().Rect()
+//	l.BackgroundBorderPainter.PaintBackground(c, r)
+//	l.PaintChildren.Paint(c)
+//	l.BackgroundBorderPainter.PaintBorder(c, r)
+//}

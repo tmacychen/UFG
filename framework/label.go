@@ -4,7 +4,7 @@
 
 package framework
 
-import "UFG/widget/tools"
+import "github.com/tmacychen/UFG/widget/tools"
 
 type Label interface {
 	Control

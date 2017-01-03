@@ -7,7 +7,7 @@ package controller
 import (
 	"fmt"
 	"reflect"
-	"UFG/framework"
+	"github.com/tmacychen/UFG/framework"
 )
 
 type EventListener struct {

@@ -6,18 +6,12 @@ package widget
 
 import (
 	"strings"
-	"UFG/controller"
-	"UFG/framework"
-	"UFG/math"
-	"UFG/widget/tools"
-)
+	"github.com/tmacychen/UFG/controller"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/math"
+	"github.com/tmacychen/UFG/widget/tools"
 
-func createLabel(theme *Theme) framework.Label {
-	l := &Label{}
-	l.Init(l, theme, theme.DefaultFont(), theme.LabelStyle.FontColor)
-	l.SetMargin(math.Spacing{L: 3, T: 3, R: 3, B: 3})
-	return l
-}
+)
 
 type LabelOuter interface {
 	controller.ControlOuter
@@ -34,6 +28,10 @@ type Label struct {
 	multiline           bool
 	text                string
 }
+
+
+
+
 
 func (l *Label) Init(outer LabelOuter, theme framework.Theme, font framework.Font, color tools.Color) {
 	if font == nil {

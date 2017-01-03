@@ -5,8 +5,8 @@
 package controller
 
 import (
-	"UFG/framework"
-	"UFG/math"
+	"github.com/tmacychen/UFG/framework"
+	"github.com/tmacychen/UFG/math"
 )
 
 type MouseEvent struct {
