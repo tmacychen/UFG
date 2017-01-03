@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bc4e545a-0bce-4f65-b210-b417db9c142c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/samples/helloword/main" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/attachable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/channeled_event.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/container.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/control.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/draw_paint.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/event_base.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/focus_controller.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/focusable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/input_event_handler.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/keyboard_event.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/keystroke_event.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/layoutable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/mouse_event.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/paddable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/parentable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/simple_event.go.bak" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/visible.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/blitter.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/canvas.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/check_error.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/context.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/debug.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/debug_js.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/draw_mode.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/driver.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/font.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/glyph_page.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/glyph_table.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/index_buffer.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/keyboard_translate.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/mouse_translate.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/platform/linux_constants.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/platform/osx_constants.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/platform/windows_constants.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/polygon.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/primitive_type.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/refcounted.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/resolution.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/shader_attribute.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/shader_data_type.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/shader_program.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/shader_uniform.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/shape.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/stats.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/texture.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/triangulate.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/vertex_buffer.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/vertex_stream.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/driver/gl/viewport.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/droid_sans_mono.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/gxfont.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/mkfont.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/roboto_regular.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/alignment.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/bubble_overlay.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/button.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/canvas.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/code_editor.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/container.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/control.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/control_list.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/direction.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/driver.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/event.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/focusable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/font.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/keyboard_key.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/keyboard_modifier.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/label.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/linear_layout.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/mouse_button.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/mouse_state.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/orientation.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/attachable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/draw.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/isvisibiler.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/layout.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/layout_children.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/paint_childer.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/painter.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/parenter.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/redrawer.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/relayouter.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/outer/sized.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/polygon.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/size_mode.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/textbox.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/texture.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/theme.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/viewport.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/framework/window.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/constants.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/line_intersect.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/line_intersect_test.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/mat2.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/mat2_test.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/mat3.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/mat3_test.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/math.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/math_test.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/point.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/rect.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/rect_test.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/size.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/size_test.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/spacing.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/vec2.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/vec3.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/math/vec4.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/samples/helloword/main.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/background_border_painter.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/button.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/draw_paint.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/label.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/layoutable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/lighttheme/light.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/linear_layout.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/paddable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/paint_children.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/parentable.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/style.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/theme.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/tools/brush.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/tools/color.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/tools/pen.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/utils.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/visible.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/widget/window.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="89" />
+    <option name="y" value="24" />
+    <option name="width" value="1177" />
+    <option name="height" value="686" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UFG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UFG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="project.scopes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bc4e545a-0bce-4f65-b210-b417db9c142c" name="Default" comment="" />
+      <created>1483416819345</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1483416819345</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="89" y="24" width="1177" height="686" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2497876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+</project>
