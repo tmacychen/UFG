@@ -14,9 +14,13 @@ import (
 
 type ContainerOuter interface {
 	framework.Container
+
+	outer.Painter
+	outer.PaintChilder
+	outer.LayoutChildren
+
 	outer.Attachable
 	outer.IsVisibler
-	outer.LayoutChildren
 	outer.Parenter
 	outer.Sized
 }
@@ -29,6 +33,7 @@ type Container struct {
 	Paddable
 	Parentable
 	PaintChildren
+	Visible
 
 	outer              ContainerOuter
 	children           framework.Children
@@ -36,7 +41,17 @@ type Container struct {
 	relayoutSuspended  bool
 }
 
-func (c *Container) Init(outer ContainerOuter) {
+func (c *Container) Init(outer ContainerOuter,theme framework.Theme) {
+
+	c.Attachable.Init(outer)
+	c.DrawPaint.Init(outer, theme)
+	c.InputEventHandler.Init(outer)
+	c.Layoutable.Init(outer, theme)
+	c.Paddable.Init(outer)
+	c.PaintChildren.Init(outer)
+	c.Parentable.Init(outer)
+	c.Visible.Init(outer)
+
 	c.outer = outer
 	c.children = framework.Children{}
 	outer.OnAttach(func() {

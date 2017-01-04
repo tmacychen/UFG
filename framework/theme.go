@@ -11,11 +11,11 @@ type Theme interface {
 	DefaultMonospaceFont() Font
 	SetDefaultMonospaceFont(Font)
 	//	CreateBubbleOverlay() BubbleOverlay
-	//	CreateButton() Button
+	CreateButton() Button
 	//	CreateCodeEditor() CodeEditor
 	//	CreateDropDownList() DropDownList
 	//	CreateImage() Image
-		CreateLabel() Label
+	CreateLabel() Label
 	//	CreateLinearLayout() LinearLayout
 	//	CreateList() List
 	//	CreatePanelHolder() PanelHolder
@@ -26,5 +26,5 @@ type Theme interface {
 	//	CreateTableLayout() TableLayout
 	//	CreateTextBox() TextBox
 	//	CreateTree() Tree
-		CreateWindow(width, height int, title string) Window
+	CreateWindow(width, height int, title string) Window
 }

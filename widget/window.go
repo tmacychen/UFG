@@ -20,10 +20,7 @@ type WindowOuter interface {
 }
 
 type Window struct {
-	controller.Attachable
 	controller.Container
-	controller.Paddable
-	controller.PaintChildren
 	BackgroundBorderPainter
 
 	outer                 WindowOuter
@@ -38,20 +35,17 @@ type Window struct {
 	onClose               framework.Event
 }
 
-func (w *Window) Init(outer WindowOuter, driver framework.Driver, width, height int, title string) {
+func (w *Window) Init(outer WindowOuter, theme framework.Theme, width, height int, title string) {
 //	println("window init")
-	w.Attachable.Init(outer)
-	w.Container.Init(outer)
-	w.Paddable.Init(outer)
-	w.PaintChildren.Init(outer)
+	w.Container.Init(outer,theme)
 	w.BackgroundBorderPainter.Init(outer)
 	w.outer = outer
-	w.driver = driver
+	w.driver = theme.Driver()
 
 	w.onClose = controller.CreateEvent(func() {})
 
 	w.SetBorderPen(tools.TransparentPen)
-	w.setViewport(driver.CreateWindowedViewport(width, height, title))
+	w.setViewport(w.driver.CreateWindowedViewport(width, height, title))
 	//window 需要显示
 	w.Attach()
 	//interface compliance test

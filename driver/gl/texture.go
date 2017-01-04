@@ -6,6 +6,7 @@ package gl
 
 import (
 	"image"
+
 	"github.com/tmacychen/UFG/math"
 
 	"github.com/goxjs/gl"
@@ -25,7 +26,7 @@ func newTexture(img image.Image, pixelsPerDip float32) *texture {
 	return t
 }
 
-// gxui.Texture compliance
+// framework.Texture compliance
 func (t *texture) Image() image.Image {
 	return t.image
 }

@@ -5,23 +5,22 @@ import (
 	"github.com/tmacychen/UFG/framework"
 	"github.com/tmacychen/UFG/controller"
 	"github.com/tmacychen/UFG/math"
-	"github.com/tmacychen/UFG/widget/tools"
 
+	"github.com/tmacychen/UFG/widget/tools"
 )
 
-type Button struct{
-	widget.Button
-	theme *Theme
+type Button struct {
+ 	widget.Button
+	theme * Theme
 }
 
 func createButton(theme *Theme) framework.Button {
-	b := &Button{}
+	b := &widget.Button{}
 	b.Init(b, theme)
-	b.theme = theme
 	b.SetPadding(math.Spacing{L: 3, T: 3, R: 3, B: 3})
 	b.SetMargin(math.Spacing{L: 3, T: 3, R: 3, B: 3})
-	b.SetBackgroundBrush(b.theme.ButtonDefaultStyle.Brush)
-	b.SetBorderPen(b.theme.ButtonDefaultStyle.Pen)
+	b.SetBackgroundBrush(theme.ButtonDefaultStyle.Brush)
+	b.SetBorderPen(theme.ButtonDefaultStyle.Pen)
 	b.OnMouseEnter(func(controller.MouseEvent) { b.Redraw() })
 	b.OnMouseExit(func(controller.MouseEvent) { b.Redraw() })
 	b.OnMouseDown(func(controller.MouseEvent) { b.Redraw() })
@@ -33,8 +32,8 @@ func createButton(theme *Theme) framework.Button {
 
 
 func (b *Button) Paint( c framework.Canvas) {
-	pen := b.Button.BorderPen()
-	brush := b.Button.BackgroundBrush()
+	pen := b.BorderPen()
+	brush := b.BackgroundBrush()
 	fontColor := b.theme.ButtonDefaultStyle.FontColor
 
 	switch {
@@ -49,6 +48,7 @@ func (b *Button) Paint( c framework.Canvas) {
 	}
 
 	if l := b.Label(); l != nil {
+		println("set button label color")
 		l.SetColor(fontColor)
 	}
 

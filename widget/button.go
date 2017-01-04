@@ -21,14 +21,14 @@ type Button struct {
 	controller.Focusable
 
 	outer      ButtonOuter
-	theme      framework.Theme
 	label      framework.Label
+	theme 		framework.Theme
 	buttonType framework.ButtonType
 	checked    bool
 }
 
 func (b *Button) Init(outer ButtonOuter, theme framework.Theme) {
-	b.LinearLayout.Init(outer)
+	b.LinearLayout.Init(outer,theme)
 	b.Focusable.Init(outer)
 
 	b.buttonType = framework.PushButton
@@ -65,6 +65,7 @@ func (b *Button) SetText(text string) {
 			b.label = b.theme.CreateLabel()
 			b.label.SetMargin(math.ZeroSpacing)
 			b.AddChild(b.label)
+
 		}
 		b.label.SetText(text)
 	}
@@ -115,3 +116,4 @@ func (b *Button) KeyPress(ev controller.KeyboardEvent) (consume bool) {
 	}
 	return
 }
+

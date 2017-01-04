@@ -18,7 +18,6 @@ type LinearLayoutOuter interface {
 type LinearLayout struct {
 	controller.Container
 	BackgroundBorderPainter
-	controller.Visible
 	outer               LinearLayoutOuter
 	direction           framework.Direction
 	sizeMode            framework.SizeMode
@@ -26,12 +25,13 @@ type LinearLayout struct {
 	verticalAlignment   framework.VerticalAlignment
 }
 
-func (l *LinearLayout) Init(outer LinearLayoutOuter) {
+func (l *LinearLayout) Init(outer LinearLayoutOuter,theme framework.Theme) {
 
-	l.Container.Init(outer)
+	l.Container.Init(outer,theme)
 	l.BackgroundBorderPainter.Init(outer)
 	l.outer = outer
 	l.SetMouseEventTarget(true)
+	println("linearlayout SetBackgroundBrush!")
 	l.SetBackgroundBrush(tools.TransparentBrush)
 	l.SetBorderPen(tools.TransparentPen)
 
