@@ -22,13 +22,13 @@ type Button struct {
 
 	outer      ButtonOuter
 	label      framework.Label
-	theme 		framework.Theme
+	theme      framework.Theme
 	buttonType framework.ButtonType
 	checked    bool
 }
 
 func (b *Button) Init(outer ButtonOuter, theme framework.Theme) {
-	b.LinearLayout.Init(outer,theme)
+	b.LinearLayout.Init(outer, theme)
 	b.Focusable.Init(outer)
 
 	b.buttonType = framework.PushButton
@@ -116,4 +116,3 @@ func (b *Button) KeyPress(ev controller.KeyboardEvent) (consume bool) {
 	}
 	return
 }
-

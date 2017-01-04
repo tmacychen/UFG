@@ -9,8 +9,8 @@ import (
 
 	"github.com/tmacychen/UFG/font"
 	"github.com/tmacychen/UFG/framework"
-	"github.com/tmacychen/UFG/widget/tools"
 	"github.com/tmacychen/UFG/theme/basic"
+	"github.com/tmacychen/UFG/widget/tools"
 )
 
 func CreateTheme(driver framework.Driver) framework.Theme {
@@ -45,7 +45,7 @@ func CreateTheme(driver framework.Driver) framework.Theme {
 
 		//                                          fontColor    brushColor   penColor
 		BubbleOverlayStyle:        basic.CreateStyle(tools.Gray40, tools.Gray20, tools.Gray40, 1.0),
-		ButtonDefaultStyle:        basic.CreateStyle(tools.Black, tools.White, tools.Gray40, 1.0),
+		ButtonDefaultStyle:        basic.CreateStyle(tools.Gray40, tools.White, tools.Gray40, 1.0),
 		ButtonOverStyle:           basic.CreateStyle(tools.Gray40, tools.Gray90, tools.Gray40, 1.0),
 		ButtonPressedStyle:        basic.CreateStyle(tools.Gray20, tools.Gray70, tools.Gray30, 1.0),
 		CodeSuggestionListStyle:   basic.CreateStyle(tools.Gray40, tools.Gray20, tools.Gray10, 1.0),

@@ -25,9 +25,9 @@ type LinearLayout struct {
 	verticalAlignment   framework.VerticalAlignment
 }
 
-func (l *LinearLayout) Init(outer LinearLayoutOuter,theme framework.Theme) {
+func (l *LinearLayout) Init(outer LinearLayoutOuter, theme framework.Theme) {
 
-	l.Container.Init(outer,theme)
+	l.Container.Init(outer, theme)
 	l.BackgroundBorderPainter.Init(outer)
 	l.outer = outer
 	l.SetMouseEventTarget(true)
@@ -177,9 +177,9 @@ func (l *LinearLayout) SetVerticalAlignment(alignment framework.VerticalAlignmen
 		l.outer.Relayout()
 	}
 }
-//func (l *LinearLayout) Paint(c framework.Canvas) {
-//	r := l.Size().Rect()
-//	l.BackgroundBorderPainter.PaintBackground(c, r)
-//	l.PaintChildren.Paint(c)
-//	l.BackgroundBorderPainter.PaintBorder(c, r)
-//}
+func (l *LinearLayout) Paint(c framework.Canvas) {
+	r := l.Size().Rect()
+	l.BackgroundBorderPainter.PaintBackground(c, r)
+	l.PaintChildren.Paint(c)
+	l.BackgroundBorderPainter.PaintBorder(c, r)
+}
