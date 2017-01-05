@@ -3,6 +3,8 @@
     <CLASSES>
       <root url="file:///usr/local/go/src" />
     </CLASSES>
-    <SOURCES />
+    <SOURCES>
+      <root url="file:///usr/local/go/src" />
+    </SOURCES>
   </library>
 </component>
