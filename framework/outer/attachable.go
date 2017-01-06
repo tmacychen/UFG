@@ -9,9 +9,23 @@ import (
 )
 
 type Attachable interface {
+
+	// Attached returns true if the control is directly or indirectly attached
+	// to a window.
 	Attached() bool
+
+	// Attach is called when the control is directly or indirectly attached to a
+	// window.
+	// Attach should only be called by the parent of the control.
 	Attach()
+
+	// Detach is called when the control is directly or indirectly detached from a
+	// window.
+	// Detach should only be called by the parent of the control.
 	Detach()
+
+	// OnAttach subscribes f to be called whenever the control is attached.
+	// OnDetach subscribes f to be called whenever the control is detached.
 	OnAttach(func()) framework.EventSubscription
 	OnDetach(func()) framework.EventSubscription
 }

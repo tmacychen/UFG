@@ -42,6 +42,11 @@ type Control interface {
 	// Detach should only be called by the parent of the control.
 	Detach()
 
+	// OnAttach subscribes f to be called whenever the control is attached.
+	OnAttach(f func()) EventSubscription
+	// OnDetach subscribes f to be called whenever the control is detached.
+	OnDetach(f func()) EventSubscription
+
 	// DesiredSize returns the desired size of the control based on the min and
 	// max size limits. The parent control may ignore the desired size.
 	DesiredSize(min, max math.Size) math.Size
@@ -132,11 +137,7 @@ type Control interface {
 	//	// repeat-key event while the control (or child control) has focus.
 	//	KeyRepeat(KeyboardEvent)
 	//
-	//	// OnAttach subscribes f to be called whenever the control is attached.
-	OnAttach(f func()) EventSubscription
-	//
-	//	// OnDetach subscribes f to be called whenever the control is detached.
-	OnDetach(f func()) EventSubscription
+
 	//
 	//	// OnKeyPress subscribes f to be called whenever the control receives a
 	//	// key-press event.

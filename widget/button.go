@@ -68,6 +68,7 @@ func (b *Button) SetText(text string) {
 
 		}
 		b.label.SetText(text)
+		print("text",text)
 	}
 }
 

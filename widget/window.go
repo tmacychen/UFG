@@ -21,6 +21,9 @@ type WindowOuter interface {
 
 type Window struct {
 	controller.Container
+	controller.Attachable
+	controller.Paddable
+	controller.PaintChildren
 	BackgroundBorderPainter
 
 	outer                 WindowOuter
@@ -38,6 +41,9 @@ type Window struct {
 func (w *Window) Init(outer WindowOuter, theme framework.Theme, width, height int, title string) {
 //	println("window init")
 	w.Container.Init(outer,theme)
+	w.Attachable.Init(outer)
+	w.Paddable.Init(outer)
+	w.PaintChildren.Init(outer)
 	w.BackgroundBorderPainter.Init(outer)
 	w.outer = outer
 	w.driver = theme.Driver()

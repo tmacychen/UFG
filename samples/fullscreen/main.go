@@ -16,9 +16,13 @@ func appMain(driver framework.Driver) {
 
 	button := theme.CreateButton()
 	button.SetHorizontalAlignment(framework.AlignCenter)
-	button.SetSizeMode(framework.Fill)
+	//button.SetSizeMode(framework.Fill)
 	button.SetText("Make fullscreen")
+
+	lable := theme.CreateLabel()
+	lable.SetText("hello")
 	win.AddChild(button)
+	//win.AddChild(lable)
 
 }
 

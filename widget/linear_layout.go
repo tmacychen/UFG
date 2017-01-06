@@ -12,12 +12,13 @@ import (
 )
 
 type LinearLayoutOuter interface {
-	controller.ContainerOuter
+	controller.ContainerControlableOuter
 }
 
 type LinearLayout struct {
-	controller.Container
+	controller.ContainerControlable
 	BackgroundBorderPainter
+
 	outer               LinearLayoutOuter
 	direction           framework.Direction
 	sizeMode            framework.SizeMode
@@ -27,11 +28,10 @@ type LinearLayout struct {
 
 func (l *LinearLayout) Init(outer LinearLayoutOuter, theme framework.Theme) {
 
-	l.Container.Init(outer, theme)
+	l.ContainerControlable.Init(outer, theme)
 	l.BackgroundBorderPainter.Init(outer)
 	l.outer = outer
 	l.SetMouseEventTarget(true)
-	println("linearlayout SetBackgroundBrush!")
 	l.SetBackgroundBrush(tools.TransparentBrush)
 	l.SetBorderPen(tools.TransparentPen)
 
@@ -177,6 +177,7 @@ func (l *LinearLayout) SetVerticalAlignment(alignment framework.VerticalAlignmen
 		l.outer.Relayout()
 	}
 }
+
 func (l *LinearLayout) Paint(c framework.Canvas) {
 	r := l.Size().Rect()
 	l.BackgroundBorderPainter.PaintBackground(c, r)

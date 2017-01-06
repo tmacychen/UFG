@@ -48,7 +48,6 @@ func (b *Button) Paint(c framework.Canvas) {
 	}
 
 	if l := b.Label(); l != nil {
-		println("set button label color")
 		l.SetColor(fontColor)
 	}
 
@@ -71,5 +70,5 @@ func (b *Button) Paint(c framework.Canvas) {
 		brush = b.theme.FocusedStyle.Brush
 		c.DrawRoundedRect(r.ContractI(int(pen.Width)), 3.0, 3.0, 3.0, 3.0, pen, brush)
 	}
-	println("Button paint finish!")
+
 }

@@ -6,51 +6,53 @@ package controller
 
 import (
 	"fmt"
-
 	"github.com/tmacychen/UFG/framework"
 	"github.com/tmacychen/UFG/framework/outer"
 	"github.com/tmacychen/UFG/math"
 )
 
-type ContainerOuter interface {
+type ContainerNoControlOuter interface {
 	framework.Container
-
-	outer.Painter
 	outer.PaintChilder
+	outer.Painter
 	outer.LayoutChildren
+}
 
+type ContainerControlableOuter interface {
+	framework.Control
+	ContainerNoControlOuter
+}
+
+type ContainerOuter interface {
 	outer.Attachable
 	outer.IsVisibler
+	outer.LayoutChildren
 	outer.Parenter
 	outer.Sized
+	framework.Container
 }
 
 type Container struct {
-	Attachable
-	DrawPaint
-	InputEventHandler
-	Layoutable
-	Paddable
-	Parentable
-	PaintChildren
-	Visible
-
 	outer              ContainerOuter
 	children           framework.Children
 	isMouseEventTarget bool
 	relayoutSuspended  bool
 }
 
-func (c *Container) Init(outer ContainerOuter,theme framework.Theme) {
+type ContainerControlable struct {
+	Attachable
+	Container
+	DrawPaint
+	InputEventHandler
+	Layoutable
+	Paddable
+	PaintChildren
+	Visible
+	Parentable
 
-	c.Attachable.Init(outer)
-	c.DrawPaint.Init(outer, theme)
-	c.InputEventHandler.Init(outer)
-	c.Layoutable.Init(outer, theme)
-	c.Paddable.Init(outer)
-	c.PaintChildren.Init(outer)
-	c.Parentable.Init(outer)
-	c.Visible.Init(outer)
+}
+
+func (c *Container) Init(outer ContainerOuter, theme framework.Theme) {
 
 	c.outer = outer
 	c.children = framework.Children{}
@@ -64,6 +66,20 @@ func (c *Container) Init(outer ContainerOuter,theme framework.Theme) {
 			v.Control.Detach()
 		}
 	})
+}
+
+func (c *ContainerControlable) Init(outer ContainerControlableOuter, theme framework.Theme) {
+	c.Attachable.Init(outer)
+	c.DrawPaint.Init(outer, theme)
+	c.InputEventHandler.Init(outer)
+	c.Layoutable.Init(outer, theme)
+	c.Paddable.Init(outer)
+	c.PaintChildren.Init(outer)
+	c.Parentable.Init(outer)
+	c.Visible.Init(outer)
+	c.Container.Init(outer,theme)
+	// Interface compliance test
+	_ = framework.Container(c)
 }
 
 func (c *Container) SetMouseEventTarget(mouseEventTarget bool) {

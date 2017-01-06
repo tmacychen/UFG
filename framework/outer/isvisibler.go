@@ -5,5 +5,6 @@
 package outer
 
 type IsVisibler interface {
+	// IsVisible returns true if the control is visible.
 	IsVisible() bool
 }
