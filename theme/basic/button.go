@@ -1,22 +1,23 @@
 package basic
 
 import (
-	"github.com/tmacychen/UFG/widget"
-	"github.com/tmacychen/UFG/framework"
 	"github.com/tmacychen/UFG/controller"
+	"github.com/tmacychen/UFG/framework"
 	"github.com/tmacychen/UFG/math"
+	"github.com/tmacychen/UFG/widget"
 
 	"github.com/tmacychen/UFG/widget/tools"
 )
 
 type Button struct {
- 	widget.Button
-	theme * Theme
+	widget.Button
+	theme *Theme
 }
 
 func createButton(theme *Theme) framework.Button {
-	b := &widget.Button{}
+	b := &Button{}
 	b.Init(b, theme)
+	b.theme = theme
 	b.SetPadding(math.Spacing{L: 3, T: 3, R: 3, B: 3})
 	b.SetMargin(math.Spacing{L: 3, T: 3, R: 3, B: 3})
 	b.SetBackgroundBrush(theme.ButtonDefaultStyle.Brush)
@@ -30,8 +31,7 @@ func createButton(theme *Theme) framework.Button {
 	return b
 }
 
-
-func (b *Button) Paint( c framework.Canvas) {
+func (b *Button) Paint(c framework.Canvas) {
 	pen := b.BorderPen()
 	brush := b.BackgroundBrush()
 	fontColor := b.theme.ButtonDefaultStyle.FontColor
@@ -71,4 +71,5 @@ func (b *Button) Paint( c framework.Canvas) {
 		brush = b.theme.FocusedStyle.Brush
 		c.DrawRoundedRect(r.ContractI(int(pen.Width)), 3.0, 3.0, 3.0, 3.0, pen, brush)
 	}
+	println("Button paint finish!")
 }
