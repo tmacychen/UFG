@@ -55,6 +55,7 @@ func (b *Button) Paint(c framework.Canvas) {
 
 	c.DrawRoundedRect(r, 2, 2, 2, 2, tools.TransparentPen, brush)
 
+	println("button paint children")
 	b.PaintChildren.Paint(c)
 
 	c.DrawRoundedRect(r, 2, 2, 2, 2, pen, tools.TransparentBrush)
