@@ -30,7 +30,6 @@ func (p *PaintChildren) Paint(c framework.Canvas) {
 			c.AddClip(v.Control.Size().Rect().Offset(v.Offset))
 			p.outer.PaintChild(c, v, i)
 			c.Pop()
-			println("print children")
 		}
 	}
 }

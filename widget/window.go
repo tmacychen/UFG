@@ -56,7 +56,7 @@ func (w *Window) Init(outer WindowOuter, theme framework.Theme, width, height in
 	w.Attach()
 	//interface compliance test
 	_ =framework.Window(w)
-//	println("window init end")
+	println("window init end")
 }
 
 
@@ -84,6 +84,7 @@ func (w *Window) Fullscreen() bool {
 	return w.viewport.Fullscreen()
 }
 func (w *Window) SetFullscreen(fullscreen bool) {
+	println("window setfullsreen")
 	//title := w.viewport.Title()
 	if fullscreen != w.Fullscreen() {
 		old := w.viewport
@@ -126,7 +127,6 @@ func (w *Window) IsVisible() bool {
 func (w *Window) requestUpdate() {
 	if !w.updatePending {
 		w.updatePending = true
-		println("call update")
 		w.driver.Call(w.update)
 	}
 }
@@ -138,10 +138,8 @@ func (w *Window) update() {
 		w.updatePending = false
 		w.layoutPending = false
 		w.drawPending = false
-		println("update false")
 		return
 	}
-	println("w.update")
 	w.updatePending = false
 	if w.layoutPending {
 		w.layoutPending = false
@@ -159,6 +157,7 @@ func (w *Window) LayoutChildren() {
 	for _, c := range w.outer.Children() {
 		c.Layout(c.Control.DesiredSize(math.ZeroSize, s).Rect().Offset(o))
 	}
+
 }
 func (w *Window) Parent() framework.Parent {
 	return nil
@@ -175,9 +174,10 @@ func (w *Window) Paint(c framework.Canvas) {
 func (w *Window) Redraw() {
 	w.drawPending = true
 	w.requestUpdate()
+	println("w.Redraw()")
 }
 func (w *Window) Relayout() {
-	println("relayout")
+	println("w.Relayout()")
 	w.layoutPending = true
 	w.requestUpdate()
 }

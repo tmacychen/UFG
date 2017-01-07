@@ -7,6 +7,7 @@ import (
 	"github.com/tmacychen/UFG/widget"
 
 	"github.com/tmacychen/UFG/widget/tools"
+
 )
 
 type Button struct {
@@ -49,15 +50,14 @@ func (b *Button) Paint(c framework.Canvas) {
 
 	if l := b.Label(); l != nil {
 		l.SetColor(fontColor)
+		l.SetSize(b.Size())
+		l.SetVerticalAlignment(framework.AlignMiddle)
 	}
 
 	r := b.Size().Rect()
 
 	c.DrawRoundedRect(r, 2, 2, 2, 2, tools.TransparentPen, brush)
-
-	println("button paint children")
 	b.PaintChildren.Paint(c)
-
 	c.DrawRoundedRect(r, 2, 2, 2, 2, pen, tools.TransparentBrush)
 
 	if b.IsChecked() {

@@ -30,13 +30,14 @@ func (l *LinearLayout) Init(outer LinearLayoutOuter, theme framework.Theme) {
 
 	l.ContainerControlable.Init(outer, theme)
 	l.BackgroundBorderPainter.Init(outer)
-	l.outer = outer
 	l.SetMouseEventTarget(true)
 	l.SetBackgroundBrush(tools.TransparentBrush)
 	l.SetBorderPen(tools.TransparentPen)
 
+	l.outer = outer
 	// Interface compliance test
 	_ = framework.LinearLayout(l)
+	println("linearlayout init end ")
 }
 
 func (l *LinearLayout) LayoutChildren() {
@@ -124,6 +125,7 @@ func (l *LinearLayout) DesiredSize(min, max math.Size) math.Size {
 		cm := c.Control.Margin()
 		cb := cs.Expand(cm).Rect().Offset(offset)
 		if horizontal {
+			println("horizontal")
 			offset.X += cb.W()
 		} else {
 			offset.Y += cb.H()

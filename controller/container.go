@@ -32,12 +32,7 @@ type ContainerOuter interface {
 	framework.Container
 }
 
-type Container struct {
-	outer              ContainerOuter
-	children           framework.Children
-	isMouseEventTarget bool
-	relayoutSuspended  bool
-}
+
 
 type ContainerControlable struct {
 	Attachable
@@ -52,6 +47,27 @@ type ContainerControlable struct {
 
 }
 
+
+func (c *ContainerControlable) Init(outer ContainerControlableOuter, theme framework.Theme) {
+	c.Attachable.Init(outer)
+	c.DrawPaint.Init(outer, theme)
+	c.InputEventHandler.Init(outer)
+	c.Layoutable.Init(outer, theme)
+	c.Paddable.Init(outer)
+	c.PaintChildren.Init(outer)
+	c.Parentable.Init(outer)
+	c.Visible.Init(outer)
+	c.Container.Init(outer,theme)
+	// Interface compliance test
+	_ = framework.Container(c)
+}
+
+type Container struct {
+	outer              ContainerOuter
+	children           framework.Children
+	isMouseEventTarget bool
+	relayoutSuspended  bool
+}
 func (c *Container) Init(outer ContainerOuter, theme framework.Theme) {
 
 	c.outer = outer
@@ -68,19 +84,6 @@ func (c *Container) Init(outer ContainerOuter, theme framework.Theme) {
 	})
 }
 
-func (c *ContainerControlable) Init(outer ContainerControlableOuter, theme framework.Theme) {
-	c.Attachable.Init(outer)
-	c.DrawPaint.Init(outer, theme)
-	c.InputEventHandler.Init(outer)
-	c.Layoutable.Init(outer, theme)
-	c.Paddable.Init(outer)
-	c.PaintChildren.Init(outer)
-	c.Parentable.Init(outer)
-	c.Visible.Init(outer)
-	c.Container.Init(outer,theme)
-	// Interface compliance test
-	_ = framework.Container(c)
-}
 
 func (c *Container) SetMouseEventTarget(mouseEventTarget bool) {
 	c.isMouseEventTarget = mouseEventTarget
@@ -136,6 +139,7 @@ func (c *Container) AddChildAt(index int, control framework.Control) *framework.
 	if !c.relayoutSuspended {
 		c.outer.Relayout()
 	}
+	println("Add a child")
 	return child
 }
 

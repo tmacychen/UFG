@@ -64,11 +64,11 @@ func (b *Button) SetText(text string) {
 		if b.label == nil {
 			b.label = b.theme.CreateLabel()
 			b.label.SetMargin(math.ZeroSpacing)
+
 			b.AddChild(b.label)
 
 		}
 		b.label.SetText(text)
-		print("text",text)
 	}
 }
 
