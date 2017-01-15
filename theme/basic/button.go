@@ -1,7 +1,6 @@
 package basic
 
 import (
-	"github.com/tmacychen/UFG/controller"
 	"github.com/tmacychen/UFG/framework"
 	"github.com/tmacychen/UFG/math"
 	"github.com/tmacychen/UFG/widget"
@@ -23,10 +22,10 @@ func createButton(theme *Theme) framework.Button {
 	b.SetMargin(math.Spacing{L: 3, T: 3, R: 3, B: 3})
 	b.SetBackgroundBrush(theme.ButtonDefaultStyle.Brush)
 	b.SetBorderPen(theme.ButtonDefaultStyle.Pen)
-	b.OnMouseEnter(func(controller.MouseEvent) { b.Redraw() })
-	b.OnMouseExit(func(controller.MouseEvent) { b.Redraw() })
-	b.OnMouseDown(func(controller.MouseEvent) { b.Redraw() })
-	b.OnMouseUp(func(controller.MouseEvent) { b.Redraw() })
+	b.OnMouseEnter(func(framework.MouseEvent) { b.Redraw() })
+	b.OnMouseExit(func(framework.MouseEvent) { b.Redraw() })
+	b.OnMouseDown(func(framework.MouseEvent) { b.Redraw() })
+	b.OnMouseUp(func(framework.MouseEvent) { b.Redraw() })
 	b.OnGainedFocus(b.Redraw)
 	b.OnLostFocus(b.Redraw)
 	return b

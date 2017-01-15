@@ -16,7 +16,17 @@ func appMain(driver framework.Driver) {
 
 	button := theme.CreateButton()
 	button.SetHorizontalAlignment(framework.AlignCenter)
-
+	button.SetSizeMode(framework.Fill)
+	toggle := func() {
+		fullscreen := !win.Fullscreen()
+		win.SetFullscreen(fullscreen)
+		if fullscreen {
+			button.SetText("Make windowed")
+		} else {
+			button.SetText("Make fullscreen")
+		}
+	}
+	button.OnClick(func(framework.MouseEvent) { toggle() })
 	button.SetSizeMode(framework.Fill)
 	button.SetText("Make fullscreen")
 	win.AddChild(button)

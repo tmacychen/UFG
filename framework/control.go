@@ -80,7 +80,7 @@ type Control interface {
 	//	// If Click returns true, then the click event is consumed by the control,
 	//	// otherwise the next control below the should be considered for the click
 	//	// event.
-	//	Click(MouseEvent) (consume bool)
+	Click(MouseEvent) (consume bool)
 	//
 	//	// DoubleClick is called when the mouse is double-clicked on the control.
 	//	// If DoubleClick returns true, then the double-click event is consumed by the
@@ -149,7 +149,7 @@ type Control interface {
 	//
 	//	// OnClick subscribes f to be called whenever the control receives a click
 	//	// event.
-	//	OnClick(f func(MouseEvent)) EventSubscription
+		OnClick(f func(MouseEvent)) EventSubscription
 	//
 	//	// OnDoubleClick subscribes f to be called whenever the control receives a
 	//	// double-click event.

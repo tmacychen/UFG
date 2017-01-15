@@ -95,7 +95,7 @@ func (b *Button) SetChecked(checked bool) {
 }
 
 // InputEventHandler override
-func (b *Button) Click(ev controller.MouseEvent) (consume bool) {
+func (b *Button) Click(ev framework.MouseEvent) (consume bool) {
 	if ev.Button == framework.MouseButtonLeft {
 		if b.buttonType == framework.ToggleButton {
 			b.outer.SetChecked(!b.outer.IsChecked())
@@ -110,7 +110,7 @@ func (b *Button) Click(ev controller.MouseEvent) (consume bool) {
 func (b *Button) KeyPress(ev controller.KeyboardEvent) (consume bool) {
 	consume = b.InputEventHandler.KeyPress(ev)
 	if ev.Key == framework.KeySpace || ev.Key == framework.KeyEnter {
-		me := controller.MouseEvent{
+		me := framework.MouseEvent{
 			Button: framework.MouseButtonLeft,
 		}
 		return b.Click(me)

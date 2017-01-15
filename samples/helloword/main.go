@@ -2,14 +2,13 @@ package main
 
 import (
 	"github.com/tmacychen/UFG/driver/gl"
+	"github.com/tmacychen/UFG/font"
 	"github.com/tmacychen/UFG/framework"
 	"github.com/tmacychen/UFG/theme/light"
-	"github.com/tmacychen/UFG/font"
 	//"github.com/tmacychen/UFG/math"
 	"github.com/tmacychen/UFG/widget/tools"
 	//"time"
 )
-
 
 func appMain(driver framework.Driver) {
 	f, err := font.CreateFont(font.Default, 100)
@@ -18,11 +17,11 @@ func appMain(driver framework.Driver) {
 	}
 	println("app main")
 	theme := light.CreateTheme(driver)
-	window := theme.CreateWindow( 500, 200, "hi")
-//	window.SetBackgroundBrush(tools.CreateBrush(tools.Gray70))
-
+	window := theme.CreateWindow(500, 200, "hi")
+	//	window.SetBackgroundBrush(tools.CreateBrush(tools.Gray70))
 
 	label := theme.CreateLabel()
+	label
 	label.SetText("Hello world")
 	label.SetColor(tools.Blue)
 	label.SetFont(f)

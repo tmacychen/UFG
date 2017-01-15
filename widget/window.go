@@ -30,7 +30,7 @@ type Window struct {
 	driver                framework.Driver
 	viewport              framework.Viewport
 	viewportSubscriptions []framework.EventSubscription
-	windowSize            math.Size
+	windowedSize            math.Size
 	focusController       *controller.FocusController
 	layoutPending         bool
 	drawPending           bool
@@ -85,14 +85,18 @@ func (w *Window) Fullscreen() bool {
 }
 func (w *Window) SetFullscreen(fullscreen bool) {
 	println("window setfullsreen")
-	//title := w.viewport.Title()
+	title := w.viewport.Title()
 	if fullscreen != w.Fullscreen() {
 		old := w.viewport
 		if fullscreen {
-			w.windowSize = old.SizeDips()
+			w.windowedSize = old.SizeDips()
 			// 设置全屏
+			w.windowedSize = old.SizeDips()
+			w.setViewport(w.driver.CreateFullscreenViewport(0, 0, title))
 		} else {
 			// 设置为原始大小
+			width, height := w.windowedSize.WH()
+			w.setViewport(w.driver.CreateWindowedViewport(width, height, title))
 		}
 		old.Close()
 	}
