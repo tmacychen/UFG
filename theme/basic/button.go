@@ -4,7 +4,6 @@ import (
 	"github.com/tmacychen/UFG/framework"
 	"github.com/tmacychen/UFG/math"
 	"github.com/tmacychen/UFG/widget"
-
 	"github.com/tmacychen/UFG/widget/tools"
 
 )

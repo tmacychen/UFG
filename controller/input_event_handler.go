@@ -30,6 +30,7 @@ type InputEventHandler struct {
 func (m *InputEventHandler) getOnClick() framework.Event {
 	if m.onClick == nil {
 		m.onClick = CreateEvent(m.Click)
+		println("inputEventHandler ****** CreateEvent")
 	}
 	return m.onClick
 }
@@ -124,6 +125,7 @@ func (m *InputEventHandler) Init(outer InputEventHandlerOuter) {
 }
 
 func (m *InputEventHandler) Click(ev framework.MouseEvent) (consume bool) {
+	println("input Event Handler Click")
 	m.getOnClick().Fire(ev)
 	return false
 }
@@ -133,12 +135,12 @@ func (m *InputEventHandler) DoubleClick(ev framework.MouseEvent) (consume bool) 
 	return false
 }
 
-func (m *InputEventHandler) KeyPress(ev KeyboardEvent) (consume bool) {
+func (m *InputEventHandler) KeyPress(ev framework.KeyboardEvent) (consume bool) {
 	m.getOnKeyPress().Fire(ev)
 	return false
 }
 
-func (m *InputEventHandler) KeyStroke(ev KeyStrokeEvent) (consume bool) {
+func (m *InputEventHandler) KeyStroke(ev framework.KeyStrokeEvent) (consume bool) {
 	m.getOnKeyStroke().Fire(ev)
 	return false
 }
@@ -172,19 +174,20 @@ func (m *InputEventHandler) MouseUp(ev framework.MouseEvent) {
 	m.getOnMouseUp().Fire(ev)
 }
 
-func (m *InputEventHandler) KeyDown(ev KeyboardEvent) {
+func (m *InputEventHandler) KeyDown(ev framework.KeyboardEvent) {
 	m.getOnKeyDown().Fire(ev)
 }
 
-func (m *InputEventHandler) KeyUp(ev KeyboardEvent) {
+func (m *InputEventHandler) KeyUp(ev framework.KeyboardEvent) {
 	m.getOnKeyUp().Fire(ev)
 }
 
-func (m *InputEventHandler) KeyRepeat(ev KeyboardEvent) {
+func (m *InputEventHandler) KeyRepeat(ev framework.KeyboardEvent) {
 	m.getOnKeyRepeat().Fire(ev)
 }
 
 func (m *InputEventHandler) OnClick(f func(framework.MouseEvent)) framework.EventSubscription {
+	println("input event handler××××××××××××××× OnClick")
 	return m.getOnClick().Listen(f)
 }
 
@@ -192,11 +195,11 @@ func (m *InputEventHandler) OnDoubleClick(f func(framework.MouseEvent)) framewor
 	return m.getOnDoubleClick().Listen(f)
 }
 
-func (m *InputEventHandler) OnKeyPress(f func(KeyboardEvent)) framework.EventSubscription {
+func (m *InputEventHandler) OnKeyPress(f func(framework.KeyboardEvent)) framework.EventSubscription {
 	return m.getOnKeyPress().Listen(f)
 }
 
-func (m *InputEventHandler) OnKeyStroke(f func(KeyStrokeEvent)) framework.EventSubscription {
+func (m *InputEventHandler) OnKeyStroke(f func(framework.KeyStrokeEvent)) framework.EventSubscription {
 	return m.getOnKeyStroke().Listen(f)
 }
 
@@ -224,15 +227,15 @@ func (m *InputEventHandler) OnMouseScroll(f func(framework.MouseEvent)) framewor
 	return m.getOnMouseScroll().Listen(f)
 }
 
-func (m *InputEventHandler) OnKeyDown(f func(KeyboardEvent)) framework.EventSubscription {
+func (m *InputEventHandler) OnKeyDown(f func(framework.KeyboardEvent)) framework.EventSubscription {
 	return m.getOnKeyDown().Listen(f)
 }
 
-func (m *InputEventHandler) OnKeyUp(f func(KeyboardEvent)) framework.EventSubscription {
+func (m *InputEventHandler) OnKeyUp(f func(framework.KeyboardEvent)) framework.EventSubscription {
 	return m.getOnKeyUp().Listen(f)
 }
 
-func (m *InputEventHandler) OnKeyRepeat(f func(KeyboardEvent)) framework.EventSubscription {
+func (m *InputEventHandler) OnKeyRepeat(f func(framework.KeyboardEvent)) framework.EventSubscription {
 	return m.getOnKeyRepeat().Listen(f)
 }
 

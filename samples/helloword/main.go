@@ -21,7 +21,7 @@ func appMain(driver framework.Driver) {
 	//	window.SetBackgroundBrush(tools.CreateBrush(tools.Gray70))
 
 	label := theme.CreateLabel()
-	label
+
 	label.SetText("Hello world")
 	label.SetColor(tools.Blue)
 	label.SetFont(f)
