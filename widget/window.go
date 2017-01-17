@@ -30,40 +30,38 @@ type Window struct {
 	driver                framework.Driver
 	viewport              framework.Viewport
 	viewportSubscriptions []framework.EventSubscription
-	windowedSize            math.Size
+	windowedSize          math.Size
 	focusController       *controller.FocusController
 	layoutPending         bool
 	drawPending           bool
 	updatePending         bool
 
-	onClose            framework.Event // Raised by viewport
-	onResize           framework.Event // Raised by viewport
-	onMouseMove        framework.Event // Raised by viewport
-	onMouseEnter       framework.Event // Raised by viewport
-	onMouseExit        framework.Event // Raised by viewport
-	onMouseDown        framework.Event // Raised by viewport
-	onMouseUp          framework.Event // Raised by viewport
-	onMouseScroll      framework.Event // Raised by viewport
-	onKeyDown          framework.Event // Raised by viewport
-	onKeyUp            framework.Event // Raised by viewport
-	onKeyRepeat        framework.Event // Raised by viewport
-	onKeyStroke        framework.Event // Raised by viewport
+	onClose       framework.Event // Raised by viewport
+	onResize      framework.Event // Raised by viewport
+	onMouseMove   framework.Event // Raised by viewport
+	onMouseEnter  framework.Event // Raised by viewport
+	onMouseExit   framework.Event // Raised by viewport
+	onMouseDown   framework.Event // Raised by viewport
+	onMouseUp     framework.Event // Raised by viewport
+	onMouseScroll framework.Event // Raised by viewport
+	onKeyDown     framework.Event // Raised by viewport
+	onKeyUp       framework.Event // Raised by viewport
+	onKeyRepeat   framework.Event // Raised by viewport
+	onKeyStroke   framework.Event // Raised by viewport
 
 	onClick       framework.Event // Raised by MouseController
 	onDoubleClick framework.Event // Raised by MouseController
 }
 
 func (w *Window) Init(outer WindowOuter, theme framework.Theme, width, height int, title string) {
-//	println("window init")
-	w.Container.Init(outer,theme)
+	//	println("window init")
+	w.Container.Init(outer, theme)
 	w.Attachable.Init(outer)
 	w.Paddable.Init(outer)
 	w.PaintChildren.Init(outer)
 	w.BackgroundBorderPainter.Init(outer)
 	w.outer = outer
 	w.driver = theme.Driver()
-
-	w.onClose = controller.CreateEvent(func() {})
 
 	w.SetBorderPen(tools.TransparentPen)
 	w.setViewport(w.driver.CreateWindowedViewport(width, height, title))
@@ -80,16 +78,20 @@ func (w *Window) Init(outer WindowOuter, theme framework.Theme, width, height in
 	w.onKeyUp = controller.CreateEvent(func(framework.KeyboardEvent) {})
 	w.onKeyRepeat = controller.CreateEvent(func(framework.KeyboardEvent) {})
 	w.onKeyStroke = controller.CreateEvent(func(framework.KeyStrokeEvent) {})
-	
+
 	w.onClick = controller.CreateEvent(func(framework.MouseEvent) {})
 	w.onDoubleClick = controller.CreateEvent(func(framework.MouseEvent) {})
+
+	w.onResize.Listen(func() {
+		w.outer.LayoutChildren()
+		w.Draw()
+	})
 	//window 需要显示
 	w.Attach()
 	//interface compliance test
-	_ =framework.Window(w)
+	_ = framework.Window(w)
 	println("window init end")
 }
-
 
 func (w *Window) Title() string {
 	return w.viewport.Title()
@@ -120,7 +122,6 @@ func (w *Window) SetFullscreen(fullscreen bool) {
 	if fullscreen != w.Fullscreen() {
 		old := w.viewport
 		if fullscreen {
-			w.windowedSize = old.SizeDips()
 			// 设置全屏
 			w.windowedSize = old.SizeDips()
 			w.setViewport(w.driver.CreateFullscreenViewport(0, 0, title))
@@ -143,7 +144,7 @@ func (w *Window) Hide() {
 	w.viewport.Hide()
 }
 func (w *Window) Close() {
-	//	w.Detch()
+	//w.Detch()
 	w.viewport.Close()
 }
 
@@ -165,7 +166,6 @@ func (w *Window) requestUpdate() {
 		w.driver.Call(w.update)
 	}
 }
-
 
 func (w *Window) update() {
 	if !w.Attached() {
@@ -198,13 +198,11 @@ func (w *Window) Parent() framework.Parent {
 	return nil
 }
 
-
 func (w *Window) Paint(c framework.Canvas) {
 	w.PaintBackground(c, c.Size().Rect())
 	w.PaintChildren.Paint(c)
 	w.PaintBorder(c, c.Size().Rect())
 }
-
 
 func (w *Window) Redraw() {
 	w.drawPending = true
@@ -235,26 +233,24 @@ func (w *Window) Draw() framework.Canvas {
 	}
 }
 
-
-
 func (w *Window) setViewport(v framework.Viewport) {
 	for _, s := range w.viewportSubscriptions {
 		s.Unlisten()
 	}
 	w.viewport = v
 	w.viewportSubscriptions = []framework.EventSubscription{
-		v.OnClose(func() { w.onClose.Fire()}),
-			v.OnResize(func() { w.onResize.Fire() }),
-			v.OnMouseMove(func(ev framework.MouseEvent) { w.onMouseMove.Fire(ev) }),
-			v.OnMouseEnter(func(ev framework.MouseEvent) { w.onMouseEnter.Fire(ev) }),
-			v.OnMouseExit(func(ev framework.MouseEvent) { w.onMouseExit.Fire(ev) }),
-			v.OnMouseDown(func(ev framework.MouseEvent) { w.onMouseDown.Fire(ev) }),
-			v.OnMouseUp(func(ev framework.MouseEvent) { w.onMouseUp.Fire(ev) }),
-			v.OnMouseScroll(func(ev framework.MouseEvent) { w.onMouseScroll.Fire(ev) }),
-			v.OnKeyDown(func(ev framework.KeyboardEvent) { w.onKeyDown.Fire(ev) }),
-			v.OnKeyUp(func(ev framework.KeyboardEvent) { w.onKeyUp.Fire(ev) }),
-			v.OnKeyRepeat(func(ev framework.KeyboardEvent) { w.onKeyRepeat.Fire(ev) }),
-			v.OnKeyStroke(func(ev framework.KeyStrokeEvent) { w.onKeyStroke.Fire(ev) }),
+		v.OnClose(func() { w.onClose.Fire() }),
+		v.OnResize(func() { w.onResize.Fire() }),
+		v.OnMouseMove(func(ev framework.MouseEvent) { w.onMouseMove.Fire(ev) }),
+		v.OnMouseEnter(func(ev framework.MouseEvent) { w.onMouseEnter.Fire(ev) }),
+		v.OnMouseExit(func(ev framework.MouseEvent) { w.onMouseExit.Fire(ev) }),
+		v.OnMouseDown(func(ev framework.MouseEvent) { w.onMouseDown.Fire(ev) }),
+		v.OnMouseUp(func(ev framework.MouseEvent) { w.onMouseUp.Fire(ev) }),
+		v.OnMouseScroll(func(ev framework.MouseEvent) { w.onMouseScroll.Fire(ev) }),
+		v.OnKeyDown(func(ev framework.KeyboardEvent) { w.onKeyDown.Fire(ev) }),
+		v.OnKeyUp(func(ev framework.KeyboardEvent) { w.onKeyUp.Fire(ev) }),
+		v.OnKeyRepeat(func(ev framework.KeyboardEvent) { w.onKeyRepeat.Fire(ev) }),
+		v.OnKeyStroke(func(ev framework.KeyStrokeEvent) { w.onKeyStroke.Fire(ev) }),
 	}
 	w.Relayout()
 }
