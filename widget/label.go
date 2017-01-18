@@ -30,9 +30,6 @@ type Label struct {
 }
 
 
-
-
-
 func (l *Label) Init(outer LabelOuter, theme framework.Theme, font framework.Font, color tools.Color) {
 	if font == nil {
 		panic("Cannot create a label with a nil font")

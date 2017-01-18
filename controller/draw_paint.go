@@ -45,6 +45,7 @@ func (d *DrawPaint) Init(outer DrawPaintOuter, theme framework.Theme) {
 }
 
 func (d *DrawPaint) Redraw() {
+	println("DrawPaint start")
 	d.driver.AssertUIGoroutine()
 	if !d.redrawRequested {
 		if p := d.outer.Parent(); p != nil {
@@ -52,6 +53,8 @@ func (d *DrawPaint) Redraw() {
 			p.Redraw()
 		}
 	}
+
+	println("DrawPaint end")
 }
 
 func (d *DrawPaint) Draw() framework.Canvas {
@@ -61,6 +64,7 @@ func (d *DrawPaint) Draw() framework.Canvas {
 
 	s := d.outer.Size()
 	if s.Area() == 0 {
+		println("no area to draw in")
 		return nil // No area to draw in
 	}
 	if d.canvas == nil || d.canvas.Size() != s || d.redrawRequested {
@@ -69,5 +73,6 @@ func (d *DrawPaint) Draw() framework.Canvas {
 		d.outer.Paint(d.canvas)
 		d.canvas.Complete()
 	}
+	println("DrawPaint : Draw()")
 	return d.canvas
 }

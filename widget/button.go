@@ -64,6 +64,7 @@ func (b *Button) SetText(text string) {
 		if b.label == nil {
 			b.label = b.theme.CreateLabel()
 			b.label.SetMargin(math.ZeroSpacing)
+
 			b.AddChild(b.label)
 
 		}
@@ -94,8 +95,10 @@ func (b *Button) SetChecked(checked bool) {
 }
 
 // InputEventHandler override
-func (b *Button) Click(ev controller.MouseEvent) (consume bool) {
+func (b *Button) Click(ev framework.MouseEvent) (consume bool) {
+	println("button click")
 	if ev.Button == framework.MouseButtonLeft {
+		println("buttonLeft")
 		if b.buttonType == framework.ToggleButton {
 			b.outer.SetChecked(!b.outer.IsChecked())
 		}
@@ -106,10 +109,10 @@ func (b *Button) Click(ev controller.MouseEvent) (consume bool) {
 }
 
 // InputEventHandler override
-func (b *Button) KeyPress(ev controller.KeyboardEvent) (consume bool) {
+func (b *Button) KeyPress(ev framework.KeyboardEvent) (consume bool) {
 	consume = b.InputEventHandler.KeyPress(ev)
 	if ev.Key == framework.KeySpace || ev.Key == framework.KeyEnter {
-		me := controller.MouseEvent{
+		me := framework.MouseEvent{
 			Button: framework.MouseButtonLeft,
 		}
 		return b.Click(me)

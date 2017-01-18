@@ -59,6 +59,7 @@ func (e *EventBase) init(signature interface{}) {
 		e.paramTypes[i] = f.In(i)
 	}
 	e.isVariadic = f.IsVariadic()
+	println("event Base init")
 }
 
 

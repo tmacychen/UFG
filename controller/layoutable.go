@@ -59,7 +59,7 @@ func (l *Layoutable) SetSize(size math.Size) {
 	if l.relayoutRequested || sizeChanged {
 		l.relayoutRequested = false
 		l.inLayoutChildren = true
-		//		callLayoutChildrenIfSupported(l.outer)
+		callLayoutChildrenIfSupported(l.outer)
 		l.inLayoutChildren = false
 		l.outer.Redraw()
 	}
@@ -74,6 +74,8 @@ func (l *Layoutable) Relayout() {
 		if p := l.outer.Parent(); p != nil {
 			l.relayoutRequested = true
 			p.Relayout()
+			println("parent relayout")
 		}
 	}
+	println("relayout")
 }

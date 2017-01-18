@@ -64,46 +64,46 @@ type Viewport interface {
 	//	// OnClose subscribes f to be called when the viewport closes.
 	OnClose(f func()) EventSubscription
 	//
-	//	// OnResize subscribes f to be called whenever the viewport changes size.
-	//	OnResize(f func()) EventSubscription
-	//
-	//	// OnMouseMove subscribes f to be called whenever the mouse cursor moves over
-	//	// the viewport.
-	//	OnMouseMove(f func(MouseEvent)) EventSubscription
-	//
-	//	// OnMouseEnter subscribes f to be called whenever the mouse cursor enters the
-	//	// viewport.
-	//	OnMouseEnter(f func(MouseEvent)) EventSubscription
-	//
-	//	// OnMouseEnter subscribes f to be called whenever the mouse cursor leaves the
-	//	// viewport.
-	//	OnMouseExit(f func(MouseEvent)) EventSubscription
-	//
-	//	// OnMouseDown subscribes f to be called whenever a mouse button is pressed
-	//	// while the cursor is inside the viewport.
-	//	OnMouseDown(f func(MouseEvent)) EventSubscription
-	//
-	//	// OnMouseUp subscribes f to be called whenever a mouse button is released
-	//	// while the cursor is inside the viewport.
-	//	OnMouseUp(f func(MouseEvent)) EventSubscription
-	//
-	//	// OnMouseScroll subscribes f to be called whenever the mouse scroll wheel
-	//	// turns while the cursor is inside the viewport.
-	//	OnMouseScroll(f func(MouseEvent)) EventSubscription
-	//
-	//	// OnKeyDown subscribes f to be called whenever a keyboard key is pressed
-	//	// while the viewport has focus.
-	//	OnKeyDown(f func(KeyboardEvent)) EventSubscription
-	//
-	//	// OnKeyUp subscribes f to be called whenever a keyboard key is released
-	//	// while the viewport has focus.
-	//	OnKeyUp(f func(KeyboardEvent)) EventSubscription
-	//
-	//	// OnKeyRepeat subscribes f to be called whenever a keyboard key-repeat event
-	//	// is raised while the viewport has focus.
-	//	OnKeyRepeat(f func(KeyboardEvent)) EventSubscription
-	//
-	//	// OnKeyStroke subscribes f to be called whenever a keyboard key-stroke event
-	//	// is raised while the viewport has focus.
-	//	OnKeyStroke(f func(KeyStrokeEvent)) EventSubscription
+	// OnResize subscribes f to be called whenever the viewport changes size.
+	OnResize(f func()) EventSubscription
+
+	// OnMouseMove subscribes f to be called whenever the mouse cursor moves over
+	// the viewport.
+	OnMouseMove(f func(MouseEvent)) EventSubscription
+
+	// OnMouseEnter subscribes f to be called whenever the mouse cursor enters the
+	// viewport.
+	OnMouseEnter(f func(MouseEvent)) EventSubscription
+
+	// OnMouseEnter subscribes f to be called whenever the mouse cursor leaves the
+	// viewport.
+	OnMouseExit(f func(MouseEvent)) EventSubscription
+
+	// OnMouseDown subscribes f to be called whenever a mouse button is pressed
+	// while the cursor is inside the viewport.
+	OnMouseDown(f func(MouseEvent)) EventSubscription
+
+	// OnMouseUp subscribes f to be called whenever a mouse button is released
+	// while the cursor is inside the viewport.
+	OnMouseUp(f func(MouseEvent)) EventSubscription
+
+	// OnMouseScroll subscribes f to be called whenever the mouse scroll wheel
+	// turns while the cursor is inside the viewport.
+	OnMouseScroll(f func(MouseEvent)) EventSubscription
+
+	// OnKeyDown subscribes f to be called whenever a keyboard key is pressed
+	// while the viewport has focus.
+	OnKeyDown(f func(KeyboardEvent)) EventSubscription
+
+	// OnKeyUp subscribes f to be called whenever a keyboard key is released
+	// while the viewport has focus.
+	OnKeyUp(f func(KeyboardEvent)) EventSubscription
+
+	// OnKeyRepeat subscribes f to be called whenever a keyboard key-repeat event
+	// is raised while the viewport has focus.
+	OnKeyRepeat(f func(KeyboardEvent)) EventSubscription
+
+	// OnKeyStroke subscribes f to be called whenever a keyboard key-stroke event
+	// is raised while the viewport has focus.
+	OnKeyStroke(f func(KeyStrokeEvent)) EventSubscription
 }

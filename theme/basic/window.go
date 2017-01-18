@@ -11,5 +11,6 @@ func createWindow(theme *Theme, width, height int, title string) framework.Windo
 	w := &widget.Window{}
 	w.Init(w, theme, width, height, title)
 	w.SetBackgroundBrush(tools.CreateBrush(theme.WindowBackground))
+	println("create window end")
 	return w
 }

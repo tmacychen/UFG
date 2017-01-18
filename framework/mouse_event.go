@@ -2,19 +2,16 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package controller
+package framework
 
-import (
-	"github.com/tmacychen/UFG/framework"
-	"github.com/tmacychen/UFG/math"
-)
+import "github.com/tmacychen/UFG/math"
 
 type MouseEvent struct {
-	Button           framework.MouseButton
-	State            framework.MouseState
+	Button           MouseButton
+	State            MouseState
 	Point            math.Point // Local to the event receiver
 	WindowPoint      math.Point
-	Window           framework.Window
+	Window           Window
 	ScrollX, ScrollY int
-	Modifier         framework.KeyboardModifier
+	Modifier         KeyboardModifier
 }

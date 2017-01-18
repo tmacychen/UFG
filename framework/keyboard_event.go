@@ -2,11 +2,9 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package controller
+package framework
 
-import "github.com/tmacychen/UFG/framework"
-
-type KeyStrokeEvent struct {
-	Character rune
-	Modifier  framework.KeyboardModifier
+type KeyboardEvent struct {
+	Key      KeyboardKey
+	Modifier KeyboardModifier
 }

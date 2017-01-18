@@ -38,8 +38,8 @@ type viewport struct {
 	sizePixels              math.Size
 	position                math.Point
 	title                   string
-	pendingMouseMoveEvent   *controller.MouseEvent
-	pendingMouseScrollEvent *controller.MouseEvent
+	pendingMouseMoveEvent   *framework.MouseEvent
+	pendingMouseScrollEvent *framework.MouseEvent
 	scrollAccumX            float64
 	scrollAccumY            float64
 	destroyed               bool
@@ -48,12 +48,12 @@ type viewport struct {
 	// Broadcasts to application thread
 	onClose       framework.Event // ()
 	onResize      framework.Event // ()
-	onMouseMove   framework.Event // (controller.MouseEvent)
-	onMouseEnter  framework.Event // (controller.MouseEvent)
-	onMouseExit   framework.Event // (controller.MouseEvent)
-	onMouseDown   framework.Event // (controller.MouseEvent)
-	onMouseUp     framework.Event // (controller.MouseEvent)
-	onMouseScroll framework.Event // (controller.MouseEvent)
+	onMouseMove   framework.Event // (framework.MouseEvent)
+	onMouseEnter  framework.Event // (framework.MouseEvent)
+	onMouseExit   framework.Event // (framework.MouseEvent)
+	onMouseDown   framework.Event // (framework.MouseEvent)
+	onMouseUp     framework.Event // (framework.MouseEvent)
+	onMouseScroll framework.Event // (framework.MouseEvent)
 	onKeyDown     framework.Event // (controller.KeyboardEvent)
 	onKeyUp       framework.Event // (controller.KeyboardEvent)
 	onKeyRepeat   framework.Event // (controller.KeyboardEvent)
@@ -92,8 +92,8 @@ func newViewport(driver *driver, width, height int, title string, fullscreen boo
 	cursorPoint := func(x, y float64) math.Point {
 		// HACK: xpos is off by 1 and ypos is off by 3 on OSX.
 		// Compensate until real fix is found.
-		x -= 1.0
-		y -= 3.0
+		//x -= 1.0
+		//y -= 3.0
 		return math.Point{X: int(x), Y: int(y)}.ScaleS(1 / v.scaling)
 	}
 	wnd.SetCloseCallback(func(*glfw.Window) {
@@ -123,7 +123,7 @@ func newViewport(driver *driver, width, height int, title string, fullscreen boo
 		p := cursorPoint(w.GetCursorPos())
 		v.Lock()
 		if v.pendingMouseMoveEvent == nil {
-			v.pendingMouseMoveEvent = &controller.MouseEvent{}
+			v.pendingMouseMoveEvent = &framework.MouseEvent{}
 			driver.Call(func() {
 				v.Lock()
 				ev := *v.pendingMouseMoveEvent
@@ -134,11 +134,12 @@ func newViewport(driver *driver, width, height int, title string, fullscreen boo
 		}
 		v.pendingMouseMoveEvent.Point = p
 		v.pendingMouseMoveEvent.State = getMouseState(w)
+		println("Point (x: " , p.X," y : ",p.Y,")")
 		v.Unlock()
 	})
 	wnd.SetCursorEnterCallback(func(w *glfw.Window, entered bool) {
 		p := cursorPoint(w.GetCursorPos())
-		ev := controller.MouseEvent{
+		ev := framework.MouseEvent{
 			Point: p,
 		}
 		ev.State = getMouseState(w)
@@ -152,7 +153,7 @@ func newViewport(driver *driver, width, height int, title string, fullscreen boo
 		p := cursorPoint(w.GetCursorPos())
 		v.Lock()
 		if v.pendingMouseScrollEvent == nil {
-			v.pendingMouseScrollEvent = &controller.MouseEvent{}
+			v.pendingMouseScrollEvent = &framework.MouseEvent{}
 			driver.Call(func() {
 				v.Lock()
 				ev := *v.pendingMouseScrollEvent
@@ -176,7 +177,7 @@ func newViewport(driver *driver, width, height int, title string, fullscreen boo
 	})
 	wnd.SetMouseButtonCallback(func(w *glfw.Window, button glfw.MouseButton, action glfw.Action, mod glfw.ModifierKey) {
 		p := cursorPoint(w.GetCursorPos())
-		ev := controller.MouseEvent{
+		ev := framework.MouseEvent{
 			Point:    p,
 			Modifier: translateKeyboardModifier(mod),
 		}
@@ -184,12 +185,14 @@ func newViewport(driver *driver, width, height int, title string, fullscreen boo
 		ev.State = getMouseState(w)
 		if action == glfw.Press {
 			v.onMouseDown.Fire(ev)
+			println("mouse press down",ev.Button)
 		} else {
 			v.onMouseUp.Fire(ev)
+			println("mouse press up",ev.Button)
 		}
 	})
 	wnd.SetKeyCallback(func(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods glfw.ModifierKey) {
-		ev := controller.KeyboardEvent{
+		ev := framework.KeyboardEvent{
 			Key:      translateKeyboardKey(key),
 			Modifier: translateKeyboardModifier(mods),
 		}
@@ -214,7 +217,7 @@ func newViewport(driver *driver, width, height int, title string, fullscreen boo
 			return // Weird unicode character. Ignore
 		}
 
-		ev := controller.KeyStrokeEvent{
+		ev := framework.KeyStrokeEvent{
 			Character: char,
 			Modifier:  translateKeyboardModifier(mods),
 		}
@@ -243,17 +246,18 @@ func newViewport(driver *driver, width, height int, title string, fullscreen boo
 	v.driver = driver
 	v.onClose = driver.createAppEvent(func() {})
 	v.onResize = driver.createAppEvent(func() {})
-	v.onMouseMove = controller.CreateEvent(func(controller.MouseEvent) {})
-	v.onMouseEnter = driver.createAppEvent(func(controller.MouseEvent) {})
-	v.onMouseExit = driver.createAppEvent(func(controller.MouseEvent) {})
-	v.onMouseDown = driver.createAppEvent(func(controller.MouseEvent) {})
-	v.onMouseUp = driver.createAppEvent(func(controller.MouseEvent) {})
-	v.onMouseScroll = controller.CreateEvent(func(controller.MouseEvent) {})
-	v.onKeyDown = driver.createAppEvent(func(controller.KeyboardEvent) {})
-	v.onKeyUp = driver.createAppEvent(func(controller.KeyboardEvent) {})
-	v.onKeyRepeat = driver.createAppEvent(func(controller.KeyboardEvent) {})
-	v.onKeyStroke = driver.createAppEvent(func(controller.KeyStrokeEvent) {})
+	v.onMouseMove = controller.CreateEvent(func(framework.MouseEvent) {})
+	v.onMouseEnter = driver.createAppEvent(func(framework.MouseEvent) {})
+	v.onMouseExit = driver.createAppEvent(func(framework.MouseEvent) {})
+	v.onMouseDown = driver.createAppEvent(func(framework.MouseEvent) {})
+	v.onMouseUp = driver.createAppEvent(func(framework.MouseEvent) {})
+	v.onMouseScroll = controller.CreateEvent(func(framework.MouseEvent) {})
+	v.onKeyDown = driver.createAppEvent(func(framework.KeyboardEvent) {})
+	v.onKeyUp = driver.createAppEvent(func(framework.KeyboardEvent) {})
+	v.onKeyRepeat = driver.createAppEvent(func(framework.KeyboardEvent) {})
+	v.onKeyStroke = driver.createAppEvent(func(framework.KeyStrokeEvent) {})
 	v.onDestroy = driver.createDriverEvent(func() {})
+
 	v.sizeDipsUnscaled = math.Size{W: width, H: height}
 	v.sizeDips = v.sizeDipsUnscaled.ScaleS(1 / v.scaling)
 	v.sizePixels = math.Size{W: fw, H: fh}
@@ -409,43 +413,43 @@ func (v *viewport) OnClose(f func()) framework.EventSubscription {
 	return v.onClose.Listen(f)
 }
 
-func (v *viewport) OnMouseMove(f func(controller.MouseEvent)) framework.EventSubscription {
+func (v *viewport) OnMouseMove(f func(framework.MouseEvent)) framework.EventSubscription {
 	return v.onMouseMove.Listen(f)
 }
 
-func (v *viewport) OnMouseEnter(f func(controller.MouseEvent)) framework.EventSubscription {
+func (v *viewport) OnMouseEnter(f func(framework.MouseEvent)) framework.EventSubscription {
 	return v.onMouseEnter.Listen(f)
 }
 
-func (v *viewport) OnMouseExit(f func(controller.MouseEvent)) framework.EventSubscription {
+func (v *viewport) OnMouseExit(f func(framework.MouseEvent)) framework.EventSubscription {
 	return v.onMouseExit.Listen(f)
 }
 
-func (v *viewport) OnMouseDown(f func(controller.MouseEvent)) framework.EventSubscription {
+func (v *viewport) OnMouseDown(f func(framework.MouseEvent)) framework.EventSubscription {
 	return v.onMouseDown.Listen(f)
 }
 
-func (v *viewport) OnMouseUp(f func(controller.MouseEvent)) framework.EventSubscription {
+func (v *viewport) OnMouseUp(f func(framework.MouseEvent)) framework.EventSubscription {
 	return v.onMouseUp.Listen(f)
 }
 
-func (v *viewport) OnMouseScroll(f func(controller.MouseEvent)) framework.EventSubscription {
+func (v *viewport) OnMouseScroll(f func(framework.MouseEvent)) framework.EventSubscription {
 	return v.onMouseScroll.Listen(f)
 }
 
-func (v *viewport) OnKeyDown(f func(controller.KeyboardEvent)) framework.EventSubscription {
+func (v *viewport) OnKeyDown(f func(framework.KeyboardEvent)) framework.EventSubscription {
 	return v.onKeyDown.Listen(f)
 }
 
-func (v *viewport) OnKeyUp(f func(controller.KeyboardEvent)) framework.EventSubscription {
+func (v *viewport) OnKeyUp(f func(framework.KeyboardEvent)) framework.EventSubscription {
 	return v.onKeyUp.Listen(f)
 }
 
-func (v *viewport) OnKeyRepeat(f func(controller.KeyboardEvent)) framework.EventSubscription {
+func (v *viewport) OnKeyRepeat(f func(framework.KeyboardEvent)) framework.EventSubscription {
 	return v.onKeyRepeat.Listen(f)
 }
 
-func (v *viewport) OnKeyStroke(f func(controller.KeyStrokeEvent)) framework.EventSubscription {
+func (v *viewport) OnKeyStroke(f func(framework.KeyStrokeEvent)) framework.EventSubscription {
 	return v.onKeyStroke.Listen(f)
 }
 

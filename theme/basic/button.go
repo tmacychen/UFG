@@ -1,12 +1,11 @@
 package basic
 
 import (
-	"github.com/tmacychen/UFG/controller"
 	"github.com/tmacychen/UFG/framework"
 	"github.com/tmacychen/UFG/math"
 	"github.com/tmacychen/UFG/widget"
-
 	"github.com/tmacychen/UFG/widget/tools"
+
 )
 
 type Button struct {
@@ -22,10 +21,10 @@ func createButton(theme *Theme) framework.Button {
 	b.SetMargin(math.Spacing{L: 3, T: 3, R: 3, B: 3})
 	b.SetBackgroundBrush(theme.ButtonDefaultStyle.Brush)
 	b.SetBorderPen(theme.ButtonDefaultStyle.Pen)
-	b.OnMouseEnter(func(controller.MouseEvent) { b.Redraw() })
-	b.OnMouseExit(func(controller.MouseEvent) { b.Redraw() })
-	b.OnMouseDown(func(controller.MouseEvent) { b.Redraw() })
-	b.OnMouseUp(func(controller.MouseEvent) { b.Redraw() })
+	b.OnMouseEnter(func(framework.MouseEvent) { b.Redraw() })
+	b.OnMouseExit(func(framework.MouseEvent) { b.Redraw() })
+	b.OnMouseDown(func(framework.MouseEvent) { b.Redraw() })
+	b.OnMouseUp(func(framework.MouseEvent) { b.Redraw() })
 	b.OnGainedFocus(b.Redraw)
 	b.OnLostFocus(b.Redraw)
 	return b
@@ -48,16 +47,15 @@ func (b *Button) Paint(c framework.Canvas) {
 	}
 
 	if l := b.Label(); l != nil {
-		println("set button label color")
 		l.SetColor(fontColor)
+		l.SetSize(b.Size())
+		l.SetVerticalAlignment(framework.AlignMiddle)
 	}
 
 	r := b.Size().Rect()
 
 	c.DrawRoundedRect(r, 2, 2, 2, 2, tools.TransparentPen, brush)
-
 	b.PaintChildren.Paint(c)
-
 	c.DrawRoundedRect(r, 2, 2, 2, 2, pen, tools.TransparentBrush)
 
 	if b.IsChecked() {
@@ -71,5 +69,5 @@ func (b *Button) Paint(c framework.Canvas) {
 		brush = b.theme.FocusedStyle.Brush
 		c.DrawRoundedRect(r.ContractI(int(pen.Width)), 3.0, 3.0, 3.0, 3.0, pen, brush)
 	}
-	println("Button paint finish!")
+
 }

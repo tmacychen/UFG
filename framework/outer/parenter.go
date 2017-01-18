@@ -9,5 +9,7 @@ import (
 )
 
 type Parenter interface {
+
+	// Parent returns the parent of the control.
 	Parent() framework.Parent
 }

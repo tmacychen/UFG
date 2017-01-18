@@ -48,7 +48,7 @@ func (b *BackgroundBorderPainter) BackgroundBrush() tools.Brush {
 func (b *BackgroundBorderPainter) SetBackgroundBrush(brush tools.Brush) {
 	if b.brush != brush {
 		b.brush = brush
-		println("SetBackgroundBrush redraw")
+		println("SetBackgroundBrush")
 		b.outer.Redraw()
 	}
 }
@@ -60,7 +60,6 @@ func (b *BackgroundBorderPainter) BorderPen() tools.Pen {
 func (b *BackgroundBorderPainter) SetBorderPen(pen tools.Pen) {
 	if b.pen != pen {
 		b.pen = pen
-		println("SetBorderPen redraw")
 		b.outer.Redraw()
 	}
 }

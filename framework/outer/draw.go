@@ -9,5 +9,8 @@ import (
 )
 
 type Draw interface {
+	// Draw draws the control's visual apperance into the returned, new canvas.
+	// Draw is typically called by the parent of the control - calling Draw will
+	// not issue a re-draw of an attached control.
 	Draw() framework.Canvas
 }
